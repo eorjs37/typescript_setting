@@ -31,3 +31,8 @@ npm install typescript --save-dev
 ```bash
 npm run tsc-init
 ```
+
+### 인터페이스
+```
+컴퓨터세상에서의 인터페이스는 상호간의 규칙이며, 타입스크립트에서는 여러가지 타입으로 이루어진 새로운 타입
+```

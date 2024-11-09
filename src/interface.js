@@ -1,22 +1,52 @@
 "use strict";
-function startVideo(videoMeta) {
-    console.log(`startVideo ${videoMeta.videourl} , ${videoMeta.videoname}`);
+function person(person) {
+    console.log(person.name, person.age);
 }
-const videoObj = {
-    videourl: "url~~",
-    videoname: "videoname"
+const personObject = {
+    name: "최대건",
+    age: 32
 };
-startVideo(videoObj);
-function createSquare(config) {
-    let newSquare = {
-        color: "white", area: 100
-    };
-    if (config.color) {
-        newSquare.color = config.color;
-    }
-    if (config.width) {
-        newSquare.area = config.width * config.width;
-    }
-    return newSquare;
+person(personObject);
+function person2(person) {
+    console.log(person.name, person.age);
 }
-let mySquare = createSquare({ width: 100, opacity: 0.5 });
+person2(personObject);
+function person3(person) {
+    const newPerson = {
+        fullName: ""
+    };
+    if (person.name) {
+        newPerson.fullName += person.name;
+    }
+    if (person.age) {
+        newPerson.fullName += "/" + person.age;
+    }
+    return newPerson;
+}
+person3({
+    age: 11
+});
+//
+function person4(person) {
+    const newPerson = {
+        fullName: ""
+    };
+    return newPerson;
+}
+person4({
+    names: "",
+    ages: 11
+});
+let mySearchFunc;
+mySearchFunc = function (source, subString) {
+    let result = source.search(subString);
+    return result > -1;
+};
+let mySearch = function (src, sub) {
+    let result = src.search(sub);
+    return result > -1;
+};
+let myarray;
+myarray = ["Bob", "Fred"];
+let myStr = myarray[0];
+console.log(myStr);
