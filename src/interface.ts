@@ -82,3 +82,15 @@ let myarray:StringArray
 myarray = ["Bob","Fred"]
 let myStr: string = myarray[0]
 console.log(myStr);
+
+
+interface searchFunc2{
+    (num1:number,num2:number):boolean
+}
+
+const diffNumber:searchFunc2 =function(a,b){
+
+    return a>b;
+}
+
+diffNumber(1,2)

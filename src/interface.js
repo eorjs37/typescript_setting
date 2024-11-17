@@ -50,3 +50,7 @@ let myarray;
 myarray = ["Bob", "Fred"];
 let myStr = myarray[0];
 console.log(myStr);
+const diffNumber = function (a, b) {
+    return a > b;
+};
+diffNumber(1, 2);
