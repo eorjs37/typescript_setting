@@ -40,4 +40,8 @@ function buildName3(firstName, ...restOfName) {
     return firstName + " " + restOfName.join(" ");
 }
 let employeeName = buildName3("Joseph", "Name1", "Name2", "Name3");
-//
+// this
+let deck = {
+    suits: ["hearts", "spades", "clubs", "diamonds"],
+    cards: Array(52),
+};
