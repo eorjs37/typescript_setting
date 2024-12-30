@@ -32,6 +32,21 @@ npm install typescript --save-dev
 npm run tsc-init
 ```
 
+### 기본타입
+* string
+* number
+* boolean
+* object
+* array
+* tuple
+* enum
+* null
+* undefined
+* any
+* void
+* never
+
+
 ### 인터페이스
 ```
 컴퓨터세상에서의 인터페이스는 상호간의 규칙이며, 타입스크립트에서는 여러가지 타입으로 이루어진 새로운 타입  
