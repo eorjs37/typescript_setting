@@ -38,4 +38,40 @@ function pringSomething2(): void {
 function invalid(message: string): never {
   throw Error(message);
 }
-invalid("error");
+
+function callInvalid() {
+  invalid("error");
+  console.log("next");
+}
+
+callInvalid();
+
+function infiniteLoop(): never {
+  while (true) {}
+  console.log("!");
+}
+type Shape = "circle" | "square" | "triangle" | "hexagon";
+
+function getShapeArea(shape: Shape): number {
+  switch (shape) {
+    case "circle":
+      return Math.PI * 1 * 1; // 예: 반지름이 1인 원
+    case "square":
+      return 1 * 1; // 예: 한 변이 1인 정사각형
+    case "triangle":
+      return 0.5 * 1 * 1; // 예: 밑변과 높이가 1인 삼각형
+    case "hexagon":
+      return 1;
+    default:
+      const _exhaustiveCheck: never = shape;
+      throw Error(`Unhandled shape: ${_exhaustiveCheck}`);
+  }
+}
+
+//object타입 : 원시타입이 아닌타입
+declare function create(o: object | null): void;
+create({ prop: 0 });
+create(null);
+
+//error
+//create(1)

@@ -35,4 +35,31 @@ function pringSomething2() {
 function invalid(message) {
     throw Error(message);
 }
-invalid("error");
+function callInvalid() {
+    invalid("error");
+    console.log("next");
+}
+callInvalid();
+function infiniteLoop() {
+    while (true) { }
+    console.log("!");
+}
+function getShapeArea(shape) {
+    switch (shape) {
+        case "circle":
+            return Math.PI * 1 * 1; // 예: 반지름이 1인 원
+        case "square":
+            return 1 * 1; // 예: 한 변이 1인 정사각형
+        case "triangle":
+            return 0.5 * 1 * 1; // 예: 밑변과 높이가 1인 삼각형
+        case "hexagon":
+            return 1;
+        default:
+            const _exhaustiveCheck = shape;
+            throw Error(`Unhandled shape: ${_exhaustiveCheck}`);
+    }
+}
+create({ prop: 0 });
+create(null);
+//error
+//create(1)
