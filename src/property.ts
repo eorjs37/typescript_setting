@@ -135,10 +135,90 @@ class Clock implements ClockInterFace {
 //
 /*======================= 클래스의 스태틱과 인스턴스의 차이점 =======================*/
 interface ClockConstructor {
-  new (hour: number, minute: number);
+  new (hour: number, minute: number): ClockMethodInterFace;
 }
 
-interface ClockInterface {
-  tick(): void;
+interface ClockMethodInterFace{
+  tick():void;
+}
+function createClock(ctor:ClockConstructor,hour:number,minute:number):ClockMethodInterFace{
+  return new ctor(hour,minute)
+}
+
+class DigitalClock implements ClockMethodInterFace{
+  constructor(h:number,m:number){
+
+  }
+  tick(): void {
+    console.log("beep beep");
+  }
+}
+
+class AnalogClock implements ClockMethodInterFace{
+  constructor(h:number,m:number){
+
+  }
+  tick(): void {
+    console.log("tick tock");
+    
+  }
+}
+
+let digital = createClock(DigitalClock,12,17)
+let analog = createClock(AnalogClock,7,32)
+
+/*======================= 인터페이스 확장하기 =======================*/
+interface Shape{
+  color:string
+}
+
+interface SquareEx extends Shape{
+  sideLength:number;
+}
+
+let squareex = {} as SquareEx;
+squareex.color = "black"
+squareex.sideLength = 10
+
+/*======================= 하이브리드 타입 =======================*/
+interface Counter{
+  (start:number):string;
+  interval: number;
+  reset(): void;
+}
+
+function getCounter():Counter{
+  let counter = (function(start:number){}) as Counter
+  console.log(counter);
+  
+  counter.interval = 123;
+  counter.reset = function(){};
+  return counter
+}
+
+let c = getCounter();
+c(19)
+c.reset();
+c.interval = 5.0
+
+/*======================= 클래스를 확장한 인터페이스 =======================*/
+class Control{
+  private state:any;
+}
+interface SelectableControl extends Control {
+  select(): void;
+}
+class Button extends Control implements SelectableControl {
+  select() { }
+}
+
+class TextBox extends Control {
+  select() { }
+}
+class Image extends Control implements SelectableControl {
+  select() { }
+}
+class Location {
+
 }
 export {};

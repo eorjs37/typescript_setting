@@ -65,3 +65,50 @@ class Clock {
         this.currentTime = d;
     }
 }
+function createClock(ctor, hour, minute) {
+    return new ctor(hour, minute);
+}
+class DigitalClock {
+    constructor(h, m) {
+    }
+    tick() {
+        console.log("beep beep");
+    }
+}
+class AnalogClock {
+    constructor(h, m) {
+    }
+    tick() {
+        console.log("tick tock");
+    }
+}
+let digital = createClock(DigitalClock, 12, 17);
+let analog = createClock(AnalogClock, 7, 32);
+let squareex = {};
+squareex.color = "black";
+squareex.sideLength = 10;
+function getCounter() {
+    let counter = (function (start) { });
+    console.log(counter);
+    counter.interval = 123;
+    counter.reset = function () { };
+    return counter;
+}
+let c = getCounter();
+c(19);
+c.reset();
+c.interval = 5.0;
+/*======================= 클래스를 확장한 인터페이스 =======================*/
+class Control {
+}
+class Button extends Control {
+    select() { }
+}
+class TextBox extends Control {
+    select() { }
+}
+class Image extends Control {
+    select() { }
+}
+class Location {
+}
