@@ -1,56 +1,23 @@
 "use strict";
-function person(person) {
-    console.log(person.name, person.age);
+Object.defineProperty(exports, "__esModule", { value: true });
+function printLabel(labeledObj) {
+    console.log(labeledObj.label);
 }
-const personObject = {
-    name: "최대건",
-    age: 32
-};
-person(personObject);
-function person2(person) {
-    console.log(person.name, person.age);
+function printLabel2(labeledObj) {
+    console.log(labeledObj.label);
 }
-person2(personObject);
-function person3(person) {
-    const newPerson = {
-        fullName: ""
-    };
-    if (person.name) {
-        newPerson.fullName += person.name;
+//최소한의 프로퍼티만 만족하더라도 오류가 안생긴다
+const myobj = { size: 10, label: "Size 10 Object" };
+printLabel(myobj);
+printLabel2(myobj);
+function createSquare(config) {
+    let newSquare = { color: "white", area: 100 };
+    if (config.color) {
+        newSquare.color = config.color;
     }
-    if (person.age) {
-        newPerson.fullName += "/" + person.age;
+    if (config.width) {
+        newSquare.area = config.width * config.width;
     }
-    return newPerson;
+    return newSquare;
 }
-person3({
-    age: 11
-});
-//
-function person4(person) {
-    const newPerson = {
-        fullName: ""
-    };
-    return newPerson;
-}
-person4({
-    names: "",
-    ages: 11
-});
-let mySearchFunc;
-mySearchFunc = function (source, subString) {
-    let result = source.search(subString);
-    return result > -1;
-};
-let mySearch = function (src, sub) {
-    let result = src.search(sub);
-    return result > -1;
-};
-let myarray;
-myarray = ["Bob", "Fred"];
-let myStr = myarray[0];
-console.log(myStr);
-const diffNumber = function (a, b) {
-    return a > b;
-};
-diffNumber(1, 2);
+createSquare({ color: "Black" });

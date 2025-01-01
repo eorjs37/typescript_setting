@@ -1,96 +1,47 @@
-function person(person:{name:string,age:number}){
-    console.log(person.name,person.age);
+//인터페이스 : 값의 형태에 초점을 맞추고 있다. 이런 타입의 형태에 이름을 짓고 코드안의 계약을 정의
+interface LabeledValue{
+    label:string;
 }
 
-const personObject = {
-    name:"최대건",
-    age:32
+
+function printLabel(labeledObj:{label:string}){
+    console.log(labeledObj.label);
 }
 
-person(personObject)
-
-// 인터페이스 생성
-interface PersonInterface{
-    name:string,
-    age:number
-}
-
-function person2(person:PersonInterface){
-    console.log(person.name,person.age);
-}
-
-person2(personObject)
-
-//선택적프로퍼티
-interface PersonInterface2{
-    name?:string,
-    age?:number
-}
-
-function person3(person:PersonInterface2): {fullName:String}{
-    const newPerson = {
-        fullName:""
-    }
-    if(person.name){
-        newPerson.fullName += person.name
-    }
+function printLabel2(labeledObj:LabeledValue){
+    console.log(labeledObj.label);
     
-    if(person.age){
-        newPerson.fullName += "/"+person.age
+}
+//최소한의 프로퍼티만 만족하더라도 오류가 안생긴다
+const myobj = {size:10,label:"Size 10 Object"}
+printLabel(myobj)
+printLabel2(myobj)
+
+
+
+//선택적 프로퍼티
+interface SquareConfig{
+    color?:string;
+    width?:number;
+}
+
+function createSquare(config:SquareConfig):{color:string,area:number}{
+    let newSquare = {color:"white",area:100}
+    if(config.color){
+        newSquare.color = config.color
     }
-    return newPerson
-}
 
-person3({
-    age:11
-})
-
-//
-function person4(person:PersonInterface2): {fullName:String}{
-    const newPerson = {
-        fullName:""
+    if(config.width){
+        newSquare.area = config.width * config.width;
     }
-
-    return newPerson
+    return newSquare;
 }
-person4({
-    names:"",
-    ages:11
-} as PersonInterface2)
+createSquare({color:"Black"})
 
-//함수타입
-interface SearchFunc{
-    (source:string,subString:string):boolean
+//읽기 전용 프로퍼티
+interface Point{
+    readonly x:number;
+    readonly y:number;
 }
 
-let mySearchFunc:SearchFunc
-mySearchFunc = function(source:string,subString:string){
-    let result = source.search(subString)
-    return result > -1
-}
-
-let mySearch:SearchFunc = function(src:string,sub:string){
-    let result = src.search(sub)
-    return result > -1
-}
-
-//인덱스블 타입
-interface StringArray{
-    [index:number]:string;
-}
-let myarray:StringArray
-myarray = ["Bob","Fred"]
-let myStr: string = myarray[0]
-console.log(myStr);
-
-
-interface searchFunc2{
-    (num1:number,num2:number):boolean
-}
-
-const diffNumber:searchFunc2 =function(a,b){
-
-    return a>b;
-}
-
-diffNumber(1,2)
+export {}
