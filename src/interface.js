@@ -3,8 +3,7 @@ function person(person) {
     console.log(person.name, person.age);
 }
 const personObject = {
-    name: "최대건",
-    age: 32
+    age: 32,
 };
 person(personObject);
 function person2(person) {
@@ -13,7 +12,7 @@ function person2(person) {
 person2(personObject);
 function person3(person) {
     const newPerson = {
-        fullName: ""
+        fullName: "",
     };
     if (person.name) {
         newPerson.fullName += person.name;
@@ -24,18 +23,18 @@ function person3(person) {
     return newPerson;
 }
 person3({
-    age: 11
+    age: 11,
 });
 //
 function person4(person) {
     const newPerson = {
-        fullName: ""
+        fullName: "",
     };
     return newPerson;
 }
 person4({
     names: "",
-    ages: 11
+    ages: 11,
 });
 let mySearchFunc;
 mySearchFunc = function (source, subString) {
@@ -54,3 +53,21 @@ const diffNumber = function (a, b) {
     return a > b;
 };
 diffNumber(1, 2);
+function createAplayz(obj) {
+    let fullinfo = "";
+    if (obj.age) {
+        fullinfo += obj.age;
+    }
+    if (obj.name) {
+        fullinfo += obj.name;
+    }
+    return { fullinfo };
+}
+createAplayz({
+    name: "choidaegeon",
+    age: 33,
+});
+//오류 : 프로퍼티 개수가 부족하면 오류가 나지
+createAplayz({
+    age: 20,
+});
