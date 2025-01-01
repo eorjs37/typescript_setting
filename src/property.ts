@@ -133,4 +133,12 @@ class Clock implements ClockInterFace {
   }
 }
 //
+/*======================= 클래스의 스태틱과 인스턴스의 차이점 =======================*/
+interface ClockConstructor {
+  new (hour: number, minute: number);
+}
+
+interface ClockInterface {
+  tick(): void;
+}
 export {};
