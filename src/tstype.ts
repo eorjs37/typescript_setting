@@ -61,4 +61,7 @@ un = anything;
 //error : unknown값을 넣을 경우 에러를 일으킴
 //num = un;
 
+// let undefinedval: number = 1;
+// undefinedval = undefined;
+
 export {};
