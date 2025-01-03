@@ -32,4 +32,17 @@ let myAdd5: (baseValue: number, increment: number) => number = function (x, y) {
   return x + y;
 };
 
+function buildName(firstName: string, lastName?: string) {
+  if (lastName) {
+    return firstName + " " + lastName;
+  } else {
+    return firstName;
+  }
+}
+
+buildName("choi"); //동작
+//에러 :많은 변수
+//buildName("choi","dae","geon") //에러
+buildName("choi", "dae");
+
 export {};
