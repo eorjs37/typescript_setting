@@ -23,6 +23,7 @@ let myAdd4 = function (x, y) {
 let myAdd5 = function (x, y) {
     return x + y;
 };
+// 선택적 매개 변수
 function buildName(firstName, lastName) {
     if (lastName) {
         return firstName + " " + lastName;
@@ -35,3 +36,17 @@ buildName("choi"); //동작
 //에러 :많은 변수
 //buildName("choi","dae","geon") //에러
 buildName("choi", "dae");
+// 기본-초기화 매개변수
+function buildName2(firstName, lastName = "Smith") {
+    return firstName + " " + lastName;
+}
+let result1 = buildName2("choi");
+let result2 = buildName("choi", undefined);
+//나머지 매개변수
+function buildName3(firstName, ...restOfName) {
+    return firstName + " " + restOfName.join(" ");
+}
+let emoloyeeName = buildName3("cho", "1", "2", "3");
+let buildNameFn = function (firstName, ...restOfName) {
+    return firstName + " " + restOfName.join(" ");
+};

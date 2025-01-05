@@ -32,6 +32,7 @@ let myAdd5: (baseValue: number, increment: number) => number = function (x, y) {
   return x + y;
 };
 
+// 선택적 매개 변수
 function buildName(firstName: string, lastName?: string) {
   if (lastName) {
     return firstName + " " + lastName;
@@ -45,4 +46,24 @@ buildName("choi"); //동작
 //buildName("choi","dae","geon") //에러
 buildName("choi", "dae");
 
+// 기본-초기화 매개변수
+function buildName2(firstName: string, lastName = "Smith") {
+  return firstName + " " + lastName;
+}
+
+let result1 = buildName2("choi");
+let result2 = buildName("choi", undefined);
+
+//나머지 매개변수
+function buildName3(firstName: string, ...restOfName: string[]) {
+  return firstName + " " + restOfName.join(" ");
+}
+let emoloyeeName = buildName3("cho", "1", "2", "3");
+
+let buildNameFn: (fname: string, ...rest: string[]) => string = function (
+  firstName,
+  ...restOfName
+) {
+  return firstName + " " + restOfName.join(" ");
+};
 export {};
