@@ -23,3 +23,15 @@ let myAdd4 = function (x, y) {
 let myAdd5 = function (x, y) {
     return x + y;
 };
+function buildName(firstName, lastName) {
+    if (lastName) {
+        return firstName + " " + lastName;
+    }
+    else {
+        return firstName;
+    }
+}
+buildName("choi"); //동작
+//에러 :많은 변수
+//buildName("choi","dae","geon") //에러
+buildName("choi", "dae");
