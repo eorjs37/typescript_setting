@@ -105,7 +105,9 @@ class Dog extends Animal {
 }
 
 interface NotOkay {
+  // Error 숫자인덱스 시그니처와 문자열인덱스 시그니처의 반환타입이 동일해야됨
   [x: number]: Animal;
+  //[x: string]: Dog;
 }
 
 interface ButtonInterface {
