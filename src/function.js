@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 //함수 타입
 function add(x, y) {
     return x + y;
@@ -45,3 +46,26 @@ let deck = {
     suits: ["hearts", "spades", "clubs", "diamonds"],
     cards: Array(52),
 };
+const straming = {
+    artist: "아티스트",
+    musicname: "음악명",
+    musicId: "music0000",
+    makeStreaming: function () {
+        return () => {
+            /**
+             * 복잡한 로직....
+             */
+            return {
+                musicId: "musicid",
+                musicurl: "musicUrl",
+            };
+        };
+    },
+};
+const fn = straming.makeStreaming();
+const { musicId, musicurl } = fn();
+class Handler {
+    onClickBad(e) {
+        this.info = e.BUBBLING_PHASE;
+    }
+}

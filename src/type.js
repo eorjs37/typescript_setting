@@ -61,5 +61,7 @@ function getShapeArea(shape) {
 }
 create({ prop: 0 });
 create(null);
+let anum = undefined;
+anum = null;
 //error
 //create(1)

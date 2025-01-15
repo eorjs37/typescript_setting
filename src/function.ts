@@ -59,3 +59,48 @@ let deck = {
   suits: ["hearts", "spades", "clubs", "diamonds"],
   cards: Array(52),
 };
+
+interface ChannelInfo {
+  musicurl: string;
+  musicId: string;
+}
+
+interface MusicInfo {
+  artist: string;
+  musicname: string;
+  musicId: string;
+  makeStreaming(this: MusicInfo): () => ChannelInfo;
+}
+
+const straming: MusicInfo = {
+  artist: "아티스트",
+  musicname: "음악명",
+  musicId: "music0000",
+  makeStreaming: function (this: MusicInfo) {
+    return () => {
+      /**
+       * 복잡한 로직....
+       */
+      return {
+        musicId: "musicid",
+        musicurl: "musicUrl",
+      };
+    };
+  },
+};
+
+const fn = straming.makeStreaming();
+const { musicId, musicurl } = fn();
+
+interface UIElement {
+  addClickListener(onclick: (this: void, e: Event) => void): void;
+}
+
+class Handler {
+  info: string;
+  onClickBad(this: Handler, e: Event) {
+    this.info = e.BUBBLING_PHASE as unknown as string;
+  }
+}
+
+export {};
