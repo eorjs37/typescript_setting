@@ -98,9 +98,22 @@ interface UIElement {
 
 class Handler {
   info: string;
-  onClickBad(this: Handler, e: Event) {
+  onClickBad = (e: Event) => {
+    console.log("clicked!");
     this.info = e.BUBBLING_PHASE as unknown as string;
-  }
+  };
 }
 
+class uiElement implements UIElement {
+  addClickListener(onclick: (this: void, e: Event) => void): void {
+    //throw new Error("Method not implemented.");
+  }
+}
+const h = new Handler();
+const uielement = new uiElement();
+uielement.addClickListener(h.onClickBad);
+
+const suits = ["hearts", "spades", "clubs", "diamonds"];
+// function pickCard(x: { suit: string; card: number; }[]): number;
+// function pickCard(x: number): {suit: string; card: number; };
 export {};
