@@ -65,7 +65,19 @@ const straming = {
 const fn = straming.makeStreaming();
 const { musicId, musicurl } = fn();
 class Handler {
-    onClickBad(e) {
-        this.info = e.BUBBLING_PHASE;
+    constructor() {
+        this.onClickBad = (e) => {
+            console.log("clicked!");
+            this.info = e.BUBBLING_PHASE;
+        };
     }
 }
+class uiElement {
+    addClickListener(onclick) {
+        //throw new Error("Method not implemented.");
+    }
+}
+const h = new Handler();
+const uielement = new uiElement();
+uielement.addClickListener(h.onClickBad);
+const suits = ["hearts", "spades", "clubs", "diamonds"];
