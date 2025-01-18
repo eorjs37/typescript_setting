@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 //함수 타입
 function add(x, y) {
     return x + y;

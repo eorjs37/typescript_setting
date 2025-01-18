@@ -59,3 +59,5 @@ let deck = {
   suits: ["hearts", "spades", "clubs", "diamonds"],
   cards: Array(52),
 };
+
+export {};
