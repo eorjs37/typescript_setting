@@ -13,6 +13,8 @@
     /* Completeness */
     "skipLibCheck": true /* Skip type checking all .d.ts files. */,
     /*strictNullChecks*/
-    "strictNullChecks": false
+    "strictNullChecks": false,
+    /* strictFunctionTypes */
+    "strictFunctionTypes": true
   }
 }
