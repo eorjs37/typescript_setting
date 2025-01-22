@@ -15,6 +15,7 @@
     /*strictNullChecks*/
     "strictNullChecks": false,
     /* strictFunctionTypes */
-    "strictFunctionTypes": true
+    "strictFunctionTypes": true,
+    "noImplicitOverride": true
   }
 }
