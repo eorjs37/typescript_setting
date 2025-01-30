@@ -87,3 +87,47 @@ let grid1 = new Grid(1.0); // 1x scale
 let grid2 = new Grid(5.0); // 5x scale
 console.log(grid1.calculateDistanceFromOrigin({ x: 10, y: 10 }));
 console.log(grid2.calculateDistanceFromOrigin({ x: 10, y: 10 }));
+class Department {
+    constructor(name) {
+        this.name = name;
+    }
+    printName() {
+        console.log("Department name: " + this.name);
+    }
+}
+class AccountingDepartment extends Department {
+    constructor() {
+        super("Accounting and Auditing");
+    }
+    printMeeting() {
+        console.log("The Accounting Department meets each Monday at 10am.");
+    }
+    generateReports() {
+        console.log("Generating accounting reports...");
+    }
+}
+let department;
+//추상클래스는 인스턴스화 할 수 없다
+//department = new Department();
+department = new AccountingDepartment();
+department.printName();
+department.printMeeting();
+department.generateReports();
+class Greeter {
+    greet() {
+        if (this.greeting) {
+            return "Hello, " + this.greeting;
+        }
+        else {
+            return Greeter.standardGreeting;
+        }
+    }
+}
+Greeter.standardGreeting = "Hello, there";
+let greeter1;
+greeter1 = new Greeter();
+console.log(greeter1.greet());
+let greeterMaker = Greeter;
+greeterMaker.standardGreeting = "Hey there!";
+let greeter2 = new greeterMaker();
+console.log(greeter2.greet()); // "Hey there!"
