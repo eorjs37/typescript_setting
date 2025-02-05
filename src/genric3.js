@@ -16,6 +16,10 @@ function personFactoryD(name, age) {
         age,
     };
 }
+const p0 = personFactoryE("choi", 32);
+//타입추론도 가능하다
+const p1 = personFactoryE("choi", 32);
+const p2 = personFactoryD("choi1", 33);
 class Person {
     constructor(name, age) {
         this.name = name;
@@ -23,6 +27,8 @@ class Person {
     }
     method(param) { }
 }
+const classP = new Person("choi", 32);
+classP.method("1");
 const personFactoryF = (name, age) => {
     return {
         type: "human",
@@ -54,3 +60,18 @@ const savedValue2 = values2(["a", "b", "c"]);
 function onlyBoolena(arg = true) {
     return arg;
 }
+function fn() {
+    return new Promise((reolve) => reolve({
+        status: 200,
+        data: {
+            resultCd: '0000',
+            data: {
+                list: ['1']
+            }
+        }
+    }));
+}
+fn().then(res => {
+    console.log(res.status);
+    console.log(res.data.data.list);
+});

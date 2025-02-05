@@ -41,6 +41,12 @@ function personFactoryD<N, A>(name: N, age: A) {
   };
 }
 
+const p0 = personFactoryE<string,number>("choi",32)
+//타입추론도 가능하다
+const p1 = personFactoryE("choi", 32)
+const p2 = personFactoryD("choi1", 33);
+
+
 class Person<N, A> {
   name: N;
   age: A;
@@ -50,6 +56,9 @@ class Person<N, A> {
   }
   method<B>(param: B) {}
 }
+
+const classP = new Person<string, number>("choi", 32);
+classP.method<string>("1")
 
 interface Person5<N, A> {
   type: "human";
@@ -120,4 +129,37 @@ interface VO{
 function onlyBoolena(arg: true | false = true): true | false{
 	return arg;
 }
+//Prmoise 제네릭
+
+interface Data<T>{
+	resultCd: string,
+	data:T
+}
+
+interface Response<T>{
+	status: number,
+	data:Data<T>
+}
+
+interface ResultData{
+	list:string[]
+}
+
+function fn() {
+	return new Promise<Response<ResultData>>((reolve) => reolve({
+		status: 200,
+		data: {
+			resultCd: '0000',
+			data: {
+				list:['1']
+			}
+		}
+	}))
+}
+
+fn().then(res => {
+	console.log(res.status);
+	console.log(res.data.data.list);
+
+})
 export {};
