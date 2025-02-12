@@ -45,6 +45,37 @@ function startAndEnd3(start = "start", end = "end") {
   };
 }
 
+function log<Input extends new (...args: any[]) => any>(
+  value: Input,
+  context: ClassDecoratorContext
+) {
+  if (context.kind === "class") {
+    return class extends value {
+      constructor(...args: any[]) {
+        super(args);
+      }
+
+      log(msg: string): void {
+        console.log(msg);
+      }
+    };
+  }
+
+  return value;
+}
+
+function bound(
+  originalMethod: unknown,
+  context: ClassMethodDecoratorContext<any>
+) {
+  const methodName = context.name;
+  if (context.kind === "method") {
+    context.addInitializer(function () {
+      this[methodName] = this[methodName].bind(this);
+    });
+  }
+}
+
 class A {
   @startAndEnd
   eat() {
