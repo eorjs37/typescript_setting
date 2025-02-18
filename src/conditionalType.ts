@@ -52,4 +52,25 @@ type Result = OmitByType<
   },
   boolean
 >;
+
+type ChooseArray1<A> = A extends string
+  ? string[]
+  : A extends boolean
+  ? boolean[]
+  : never;
+
+type A2 = string;
+type B2 = A2 extends string ? number : boolean;
+
+type B3 = {
+  t: number;
+  f: boolean;
+}[A2 extends string ? "t" : "f"];
+
+type Start1 = string | number;
+type Result1<Key> = Key extends string ? Key[] : never;
+let n1: Result1<Start1> = ["hi"];
+
+type IsString<T> = T extends string ? true : false;
+type Result2 = IsString<"hi" | 3>;
 export {};
