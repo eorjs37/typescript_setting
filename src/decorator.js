@@ -63,6 +63,27 @@ function startAndEnd3(start = "start", end = "end") {
         return replacementMethod;
     };
 }
+function log(value, context) {
+    if (context.kind === "class") {
+        return class extends value {
+            constructor(...args) {
+                super(args);
+            }
+            log(msg) {
+                console.log(msg);
+            }
+        };
+    }
+    return value;
+}
+function bound(originalMethod, context) {
+    const methodName = context.name;
+    if (context.kind === "method") {
+        context.addInitializer(function () {
+            this[methodName] = this[methodName].bind(this);
+        });
+    }
+}
 let A = (() => {
     var _a;
     let _instanceExtraInitializers = [];
