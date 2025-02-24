@@ -37,3 +37,22 @@ function apiDummy(url) {
         .then((response) => response.json())
         .then((data) => ({ data, status: 200 }));
 }
+// 최종적으로 형태는 아래와 같이 받을 수 있다
+/* {
+ *   status:200, // number
+ *   data:{ // T => Result<T>
+ *  	 resultCd:'0000', // string
+ *     result:[  T => List
+ *     		{
+ *   				name:'choi',
+ *          age:33,
+ *        }
+ *     ]
+ *   }
+ * }
+ *
+ */
+apiDummy("/test/api").then((res) => {
+    const { result } = res.data;
+    result.forEach((item) => { });
+});
