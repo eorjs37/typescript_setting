@@ -118,4 +118,5 @@ apiDummy<Result<List[]>>("/test/api").then((res) => {
   const { result } = res.data;
   result.forEach((item) => {});
 });
+
 export {};
