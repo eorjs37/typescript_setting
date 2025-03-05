@@ -53,4 +53,18 @@ type Result2 = Intersection<{
   a(pa: 1 | 2): void;
   b(pb: 2 | 3): void;
 }>;
+
+// Union To Intersection
+type UnionToIntersection<U> = (U extends any ? (p: U) => void : never) extends (
+  p: infer I
+) => void
+  ? I
+  : never;
+
+type Result5 = UnionToIntersection<{ a: number } | { b: number }>;
+// (p:{a:number}) => void
+const result5: Result5 = {
+  a: 1,
+  b: 1,
+};
 export {};
