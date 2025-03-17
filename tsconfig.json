@@ -17,5 +17,6 @@
     /* strictFunctionTypes */
     "strictFunctionTypes": true,
     "noImplicitOverride": true
-  }
+  },
+  "include": ["global.d.ts", "src/**/*"]
 }
