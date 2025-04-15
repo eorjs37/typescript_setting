@@ -102,4 +102,58 @@ function f(sn: string | null): string {
   }
 }
 
+// 선택적 매개변수와 프로퍼티
+function f1(x: number, y?: number) {
+  return x + (y || 0);
+}
+
+f1(1, 2);
+f1(1);
+f1(1, undefined);
+// f1(1, null); // strictNullChecks 체크함으로써, number | undefined에 할당 될 수 없다
+
+// 타입가드와 타입단언
+function f2(sn: string | null): string {
+  return sn || "default";
+}
+
+// 타입 별칭
+
+type Name = string;
+type NameResolver = () => string;
+type NameOrResolver = Name | NameResolver;
+
+function getName(n: NameOrResolver): Name {
+  if (typeof n === "string") {
+    return n;
+  } else {
+    return n();
+  }
+}
+
+type Container<T> = { value: T };
+interface Person {
+  name: string;
+  age: number;
+}
+
+const container: Container<Person> = {
+  value: {
+    name: "",
+    age: 30,
+  },
+};
+
+type LinkedList<T> = T & { next: LinkedList<T> };
+interface Person2 {
+  name: string;
+}
+
+var people: LinkedList<Person2> = {
+  name: "John",
+  next: { name: "Doe", next: null as any },
+};
+var s = people.name;
+var s1 = people.next.name;
+var s2 = people.next.next.name;
 export {};
