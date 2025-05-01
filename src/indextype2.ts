@@ -34,4 +34,14 @@ let person: Person = {
 const value = getProperty(person, "name");
 console.log(value);
 
+interface Dictionary<T> {
+  [key: string]: T;
+}
+
+let keys: keyof Dictionary<number>;
+
+interface Props {
+  name: string;
+  [key: string]: string;
+}
 export {};
