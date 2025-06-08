@@ -52,8 +52,8 @@ let myFunction4: GenericTypeFn<number> = genricType3;
 
 //제네릭 클래스
 class GenericNumber<T> {
-  zeroValue: T;
-  add: (x: T, y: T) => T;
+  zeroValue: T | undefined;
+  add!: (x: T, y: T) => T;
 }
 
 let numberGenric = new GenericNumber<number>();
