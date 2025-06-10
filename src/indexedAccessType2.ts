@@ -26,5 +26,14 @@ const test = {
   hello: "1",
   test: 2,
 };
+type TESTTYPE = keyof typeof test;
 type K3 = keyof typeof test;
+type TESTVALUES = typeof test[TESTTYPE];
+
+type AnyKeys = keyof any;
+type ArrayKeys = keyof [1, 2, 3];
+let arr: ArrayKeys = "lastIndexOf";
+arr = "length";
+arr = "0";
+arr = "1";
 export {};
