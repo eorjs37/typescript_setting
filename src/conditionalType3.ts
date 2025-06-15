@@ -42,4 +42,23 @@ type OmitByType2<O, T> = {
   [K in keyof O as O[K] extends T ? never : K]: O[K];
 };
 
+type MapType = {
+  name: string;
+  age: number;
+};
+
+type MappingType = {
+  [K in keyof MapType]: MapType[K];
+};
+
+const aa: MappingType = {
+  name: "sss",
+  age: 111,
+};
+
+type OmitByType3<O, T> = {
+  [K in keyof O as O[K] extends T ? never : K]: O[K];
+};
+type OM3 = OmitByType3<MappingType, string>;
+
 export {};
