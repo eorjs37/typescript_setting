@@ -194,6 +194,25 @@ console.log(len);
 | 컴파일러 최적화 | 일부 상황에서 interface가 더 빠르고 최적화됨 (TS 내부 처리 기준) | 상대적으로 덜 최적화됨 (크게 체감되진 않음)                   |
 |                 |
 
+## 유틸리티 타입
+
+- Partial<T> : 모든 프로퍼티를 선택적으로 만드는것
+- Readonly<T> : 읽기 전용(readonly)으로 설정
+- Record<K,T> : 키가 K타입이고, 값이 T인 객체 타입정의
+- Pick<T,K> : T에서 K의 집합을 선택
+- Omit<T,K>
+- Exclude<T,U>
+- Extract<T,U>
+- NonNullable<T>
+- Parameters<T>
+- ConstructorParameters<T>
+- ReturnType<T>
+- InstanceType<T>
+- Required<T>
+- ThisParameterType
+- OmitThisParameter
+- ThisType<T>
+
 ## 공변성,반공변성
 
 - 공변성
