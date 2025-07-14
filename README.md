@@ -200,14 +200,14 @@ console.log(len);
 - Readonly<T> : 읽기 전용(readonly)으로 설정
 - Record<K,T> : 키가 K타입이고, 값이 T인 객체 타입정의
 - Pick<T,K> : T에서 K의 집합을 선택
-- Omit<T,K>
-- Exclude<T,U>
-- Extract<T,U>
-- NonNullable<T>
-- Parameters<T>
-- ConstructorParameters<T>
-- ReturnType<T>
-- InstanceType<T>
+- Omit<T,K> : T에서, K의 프로퍼티 제거
+- Exclude<T,U> : T에서 U에 할당할 수 있는 모든 속성을 제외한
+- Extract<T,U> : T에서 U에 할당 할 수 있는 모든 속성을 추출하
+- NonNullable<T> : T에서 null 과 undefined를 제외한 타입을 구성합니다.
+- Parameters<T> : 함수 타입 T의 매개변수 타입들의 튜플 타입을 구성합니다.
+- ConstructorParameters<T> : ConstructorParameters<T> 타입은 생성자 함수 타입의 모든 매개변수 타입을 추출할 수 있게 해줍니다
+- ReturnType<T> : 함수 T의 반환 타입으로 구성된 타입을 만듭니다.
+- InstanceType<T> : 생성자 함수 타입 T의 인스턴스 타입으로 구성된 타입을 만듭니다
 - Required<T>
 - ThisParameterType
 - OmitThisParameter

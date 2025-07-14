@@ -56,6 +56,39 @@ const period: PickPeriod = {
 };
 
 // - Omit<T,K>
-
 type OmitGenre = Omit<CurationInfo, "period" | "target" | "color">;
+// genre
+
+// Exclude<T,U>
+type ExcludeGenre = Exclude<"a" | "b" | "c", "a">;
+
+// Extract<T,U>
+type ExtractType = Extract<"a" | "b" | "c", "a">;
+
+// NonNullable<T>
+type NonNull1 = NonNullable<string | number | null | undefined>;
+
+declare function f1(arg: { a: number; b: number }): void;
+type PType0 = Parameters<() => string>;
+type PType1 = Parameters<(s: string) => void>;
+type PType2 = Parameters<<T>(arg: T) => T>; // [unknown]
+
+// ConstructorParameters<T>
+type T0 = ConstructorParameters<ErrorConstructor>;
+type T1 = ConstructorParameters<FunctionConstructor>; // string[]
+type T2 = ConstructorParameters<RegExpConstructor>;
+
+// ReturnType<T>
+declare function f1(): { a: number; b: number };
+type ReturnTypeT1 = ReturnType<() => string>;
+type ReturnTypeT2 = ReturnType<(s: string) => void>;
+type ReturnTypeT3 = ReturnType<<T>() => T>;
+
+class C {
+  x = 0;
+  y = 0;
+}
+
+type InstanceType1 = InstanceType<typeof C>;
+type InstanceType2 = InstanceType<any>;
 export {};
