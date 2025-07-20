@@ -91,4 +91,32 @@ class C {
 
 type InstanceType1 = InstanceType<typeof C>;
 type InstanceType2 = InstanceType<any>;
+
+interface Props {
+  a?: number;
+  b?: string;
+}
+
+const obj: Props = {
+  a: 1,
+};
+
+const required: Required<Props> = {
+  a: 1,
+  b: "dd",
+};
+
+function toHex(this: number) {
+  return this.toString(16);
+}
+
+function numberToString(n: ThisParameterType<typeof toHex>) {
+  return toHex.apply(n);
+}
+
+// ThisType
+type ObjectDescriptor<D, M> = {
+  data?: D;
+  methods: M & ThisType<D & M>;
+};
 export {};

@@ -208,10 +208,10 @@ console.log(len);
 - ConstructorParameters<T> : ConstructorParameters<T> 타입은 생성자 함수 타입의 모든 매개변수 타입을 추출할 수 있게 해줍니다
 - ReturnType<T> : 함수 T의 반환 타입으로 구성된 타입을 만듭니다.
 - InstanceType<T> : 생성자 함수 타입 T의 인스턴스 타입으로 구성된 타입을 만듭니다
-- Required<T>
-- ThisParameterType
-- OmitThisParameter
-- ThisType<T>
+- Required<T> : T의 모든 프로퍼티가 필수로 설정된 타입을 구성합니다.
+- ThisParameterType : 함수 타입의 this 매개변수의 타입, 혹은 함수 타입에 this 매개변수가 없을 경우 unknown을 추출합니다.
+- OmitThisParameter : 함수 타입에서 'this' 매개변수를 제거합니다.
+- ThisType<T> : 문맥적 this타입에 표시하는 역할을 합니다.
 
 ## 공변성,반공변성
 
