@@ -55,4 +55,17 @@ interface VO{
 const returnVo = <T extends VO>() => {
 	return null
 }
+
+type Start = string | number;
+type Result = Start extends string ? Start[] : never
+
+type Result1<Key> = Key extends string ? Key[] : never;
+let n: Result1<Start> = ['hi']
+
+
+type IsString<T> = T extends string  ? true : false;
+type ResultString = IsString<'hi' | 3>
+
+type IsString2<T> = [T] extends string ? true : false;
+type ResultString2 = IsString2<'hi' | 3>
 export {};
